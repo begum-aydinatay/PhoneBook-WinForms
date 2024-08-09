@@ -92,7 +92,19 @@ namespace PhoneBook
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
+            if (this.dataGridView.CurrentRow != null)
+            {
+                DialogResult res = MessageBox.Show("Are you sure you want to delete the selected item?", "Delete Item", MessageBoxButtons.YesNoCancel);
 
+                if (res == DialogResult.Yes)
+                {
+                    DataRow dr = (this.dataGridView.CurrentRow.DataBoundItem as DataRowView).Row;
+
+                    dr.Delete();
+                }
+            }
+
+            
         }
     }
 }
