@@ -56,7 +56,6 @@
             txtBoxName.Name = "txtBoxName";
             txtBoxName.Size = new Size(257, 36);
             txtBoxName.TabIndex = 1;
-            txtBoxName.TextChanged += this.textBox1_TextChanged;
             // 
             // txtBoxSurname
             // 
@@ -83,7 +82,6 @@
             txtBoxNo.Name = "txtBoxNo";
             txtBoxNo.Size = new Size(257, 36);
             txtBoxNo.TabIndex = 5;
-            txtBoxNo.TextChanged += this.textBox3_TextChanged;
             // 
             // label3
             // 
@@ -133,7 +131,6 @@
             Name = "frmNewItem";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "New Item Screen";
-            Load += this.frmNewItem_Load;
             ResumeLayout(false);
             PerformLayout();
         }
