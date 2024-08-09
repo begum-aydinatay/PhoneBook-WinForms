@@ -55,9 +55,9 @@
             lblLastOperationInfo = new ToolStripStatusLabel();
             dataGridView = new DataGridView();
             toolStrip1 = new ToolStrip();
-            btnAddFile = new ToolStripButton();
-            btnEditFile = new ToolStripButton();
-            btnNewFile = new ToolStripButton();
+            btnAddItem = new ToolStripButton();
+            btnEditItem = new ToolStripButton();
+            btnDeleteItem = new ToolStripButton();
             btnSaveFile = new ToolStripButton();
             toolStripSeparator = new ToolStripSeparator();
             btnCut = new ToolStripButton();
@@ -94,7 +94,8 @@
             // menuExit
             // 
             menuExit.Name = "menuExit";
-            menuExit.Size = new Size(116, 26);
+            menuExit.ShortcutKeys = Keys.Alt | Keys.F4;
+            menuExit.Size = new Size(169, 26);
             menuExit.Text = "Exit";
             // 
             // menuEdit
@@ -107,24 +108,27 @@
             // menuCut
             // 
             menuCut.Name = "menuCut";
-            menuCut.Size = new Size(126, 26);
+            menuCut.ShortcutKeys = Keys.Control | Keys.X;
+            menuCut.Size = new Size(177, 26);
             menuCut.Text = "Cut";
             // 
             // menuCopy
             // 
             menuCopy.Name = "menuCopy";
-            menuCopy.Size = new Size(126, 26);
+            menuCopy.ShortcutKeys = Keys.Control | Keys.C;
+            menuCopy.Size = new Size(177, 26);
             menuCopy.Text = "Copy";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(123, 6);
+            toolStripSeparator1.Size = new Size(174, 6);
             // 
             // menuPaste
             // 
             menuPaste.Name = "menuPaste";
-            menuPaste.Size = new Size(126, 26);
+            menuPaste.ShortcutKeys = Keys.Control | Keys.V;
+            menuPaste.Size = new Size(177, 26);
             menuPaste.Text = "Paste";
             // 
             // menuOperation
@@ -137,35 +141,40 @@
             // menuNewItem
             // 
             menuNewItem.Name = "menuNewItem";
-            menuNewItem.Size = new Size(170, 26);
+            menuNewItem.ShortcutKeys = Keys.Control | Keys.N;
+            menuNewItem.Size = new Size(223, 26);
             menuNewItem.Text = "New Item";
+            menuNewItem.Click += menuNewItem_Click;
             // 
             // menuEditItem
             // 
             menuEditItem.Name = "menuEditItem";
-            menuEditItem.Size = new Size(170, 26);
+            menuEditItem.ShortcutKeys = Keys.Control | Keys.E;
+            menuEditItem.Size = new Size(223, 26);
             menuEditItem.Text = "Edit Item";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(167, 6);
+            toolStripSeparator2.Size = new Size(220, 6);
             // 
             // menuDeleteItem
             // 
             menuDeleteItem.Name = "menuDeleteItem";
-            menuDeleteItem.Size = new Size(170, 26);
+            menuDeleteItem.ShortcutKeys = Keys.Control | Keys.D;
+            menuDeleteItem.Size = new Size(223, 26);
             menuDeleteItem.Text = "Delete Item";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(167, 6);
+            toolStripSeparator3.Size = new Size(220, 6);
             // 
             // menuUpdate
             // 
             menuUpdate.Name = "menuUpdate";
-            menuUpdate.Size = new Size(170, 26);
+            menuUpdate.ShortcutKeys = Keys.Control | Keys.R;
+            menuUpdate.Size = new Size(223, 26);
             menuUpdate.Text = "Update";
             menuUpdate.Click += listItemsToolStripMenuItem_Click;
             // 
@@ -266,38 +275,39 @@
             // 
             toolStrip1.Dock = DockStyle.None;
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddFile, btnEditFile, btnNewFile, btnSaveFile, toolStripSeparator, btnCut, btnCopy, btnPaste, toolStripSeparator5 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, btnSaveFile, toolStripSeparator, btnCut, btnCopy, btnPaste, toolStripSeparator5 });
             toolStrip1.Location = new Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(267, 27);
+            toolStrip1.Size = new Size(228, 27);
             toolStrip1.TabIndex = 0;
             // 
-            // btnAddFile
+            // btnAddItem
             // 
-            btnAddFile.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAddFile.Image = Properties.Resources.add_file_icon;
-            btnAddFile.ImageTransparentColor = Color.Magenta;
-            btnAddFile.Name = "btnAddFile";
-            btnAddFile.Size = new Size(29, 24);
-            btnAddFile.Text = "&New";
+            btnAddItem.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAddItem.Image = Properties.Resources.add_file_icon;
+            btnAddItem.ImageTransparentColor = Color.Magenta;
+            btnAddItem.Name = "btnAddItem";
+            btnAddItem.Size = new Size(29, 24);
+            btnAddItem.Text = "&New";
+            btnAddItem.Click += menuNewItem_Click;
             // 
-            // btnEditFile
+            // btnEditItem
             // 
-            btnEditFile.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnEditFile.Image = Properties.Resources.edit_file_icon;
-            btnEditFile.ImageTransparentColor = Color.Magenta;
-            btnEditFile.Name = "btnEditFile";
-            btnEditFile.Size = new Size(29, 24);
-            btnEditFile.Text = "&New";
+            btnEditItem.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditItem.Image = Properties.Resources.edit_file_icon;
+            btnEditItem.ImageTransparentColor = Color.Magenta;
+            btnEditItem.Name = "btnEditItem";
+            btnEditItem.Size = new Size(29, 24);
+            btnEditItem.Text = "&New";
             // 
-            // btnNewFile
+            // btnDeleteItem
             // 
-            btnNewFile.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnNewFile.Image = Properties.Resources.delete_file_icon;
-            btnNewFile.ImageTransparentColor = Color.Magenta;
-            btnNewFile.Name = "btnNewFile";
-            btnNewFile.Size = new Size(29, 24);
-            btnNewFile.Text = "&New";
+            btnDeleteItem.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnDeleteItem.Image = Properties.Resources.delete_file_icon;
+            btnDeleteItem.ImageTransparentColor = Color.Magenta;
+            btnDeleteItem.Name = "btnDeleteItem";
+            btnDeleteItem.Size = new Size(29, 24);
+            btnDeleteItem.Text = "&New";
             // 
             // btnSaveFile
             // 
@@ -345,7 +355,7 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(6, 27);
             // 
-            // Form1
+            // MainScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -354,8 +364,9 @@
             Controls.Add(menuStrip);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip;
-            Name = "Form1";
+            Name = "MainScreen";
             Text = "Phone Book Application";
+            Load += MainScreen_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
@@ -401,14 +412,14 @@
         private ToolStripStatusLabel lblItemCount;
         private ToolStripStatusLabel lblTime;
         private ToolStripStatusLabel lblLastOperationInfo;
-        private ToolStripButton btnNewFile;
+        private ToolStripButton btnDeleteItem;
         private ToolStripButton btnSaveFile;
         private ToolStripSeparator toolStripSeparator;
         private ToolStripButton btnCut;
         private ToolStripButton btnCopy;
         private ToolStripButton btnPaste;
         private ToolStripSeparator toolStripSeparator5;
-        private ToolStripButton btnAddFile;
-        private ToolStripButton btnEditFile;
+        private ToolStripButton btnAddItem;
+        private ToolStripButton btnEditItem;
     }
 }
