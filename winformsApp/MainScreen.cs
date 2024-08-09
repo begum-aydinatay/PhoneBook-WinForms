@@ -66,5 +66,33 @@ namespace PhoneBook
 
             this.dataGridView.DataSource = dt;
         }
+
+        private void menuEditItem_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView.CurrentRow != null)
+            {
+                frmEditItem editItem = new frmEditItem();
+
+                editItem.EdittedPerson = new Person();
+                editItem.EdittedPerson.Name = this.dataGridView.CurrentRow.Cells[1].Value.ToString();
+                editItem.EdittedPerson.Surname = this.dataGridView.CurrentRow.Cells[2].Value.ToString();
+                editItem.EdittedPerson.TelephoneNo = this.dataGridView.CurrentRow.Cells[3].Value.ToString();
+
+                DialogResult res = editItem.ShowDialog();
+
+                if (res == DialogResult.OK)
+                {
+                    DataRow dr = (this.dataGridView.CurrentRow.DataBoundItem as DataRowView).Row;
+                    dr[1] = editItem.EdittedPerson.Name;
+                    dr[2] = editItem.EdittedPerson.Surname;
+                    dr[3] = editItem.EdittedPerson.TelephoneNo;
+                }
+            }
+        }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

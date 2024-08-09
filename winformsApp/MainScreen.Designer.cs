@@ -152,6 +152,7 @@
             menuEditItem.ShortcutKeys = Keys.Control | Keys.E;
             menuEditItem.Size = new Size(223, 26);
             menuEditItem.Text = "Edit Item";
+            menuEditItem.Click += menuEditItem_Click;
             // 
             // toolStripSeparator2
             // 
@@ -162,8 +163,9 @@
             // 
             menuDeleteItem.Name = "menuDeleteItem";
             menuDeleteItem.ShortcutKeys = Keys.Control | Keys.D;
-            menuDeleteItem.Size = new Size(223, 26);
+            menuDeleteItem.Size = new Size(224, 26);
             menuDeleteItem.Text = "Delete Item";
+            menuDeleteItem.Click += btnDeleteItem_Click;
             // 
             // toolStripSeparator3
             // 
@@ -299,6 +301,7 @@
             btnEditItem.Name = "btnEditItem";
             btnEditItem.Size = new Size(29, 24);
             btnEditItem.Text = "&New";
+            btnEditItem.Click += menuEditItem_Click;
             // 
             // btnDeleteItem
             // 
@@ -308,6 +311,7 @@
             btnDeleteItem.Name = "btnDeleteItem";
             btnDeleteItem.Size = new Size(29, 24);
             btnDeleteItem.Text = "&New";
+            btnDeleteItem.Click += btnDeleteItem_Click;
             // 
             // btnSaveFile
             // 
