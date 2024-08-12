@@ -49,6 +49,9 @@ namespace PhoneBook
                 dr[3] = newPerson.TelephoneNo;
 
                 dt.Rows.Add(dr);
+                this.CalculateItem();
+
+                this.lblLastOperationInfo.Text = "New item was added.";
             }
         }
 
@@ -73,9 +76,12 @@ namespace PhoneBook
             ds.Tables.Clear();
             ds.ReadXml(Application.StartupPath + "\\" + "data.xml", XmlReadMode.ReadSchema);
 
-            if(ds.Tables.Count > 0)
+            if (ds.Tables.Count > 0)
             {
                 this.dataGridView.DataSource = ds.Tables[0];
+                this.CalculateItem();
+
+                this.lblLastOperationInfo.Text = "Table was loaded.";
             }
         }
 
@@ -98,6 +104,8 @@ namespace PhoneBook
                     dr[1] = editItem.EdittedPerson.Name;
                     dr[2] = editItem.EdittedPerson.Surname;
                     dr[3] = editItem.EdittedPerson.TelephoneNo;
+
+                    this.lblLastOperationInfo.Text = "An item was editted.";
                 }
             }
         }
@@ -113,6 +121,9 @@ namespace PhoneBook
                     DataRow dr = (this.dataGridView.CurrentRow.DataBoundItem as DataRowView).Row;
 
                     dr.Delete();
+                    this.CalculateItem();
+
+                    this.lblLastOperationInfo.Text = "An item was deleted.";
                 }
             }
 
@@ -122,6 +133,17 @@ namespace PhoneBook
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
             ds.WriteXml(Application.StartupPath + "\\" + "data.xml", XmlWriteMode.WriteSchema);
+            this.lblLastOperationInfo.Text = "Table was saved.";
+        }
+
+        private void CalculateItem()
+        {
+            this.lblItemCount.Text = "Item: " + (this.dataGridView.RowCount - 1).ToString();
+        }
+
+        private void tmr_Tick(object sender, EventArgs e)
+        {
+            this.lblTime.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

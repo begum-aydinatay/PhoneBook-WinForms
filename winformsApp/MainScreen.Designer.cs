@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             menuStrip = new MenuStrip();
             menuFile = new ToolStripMenuItem();
@@ -64,6 +65,7 @@
             btnCopy = new ToolStripButton();
             btnPaste = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
+            tmr = new System.Windows.Forms.Timer(components);
             menuStrip.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -142,7 +144,7 @@
             // 
             menuNewItem.Name = "menuNewItem";
             menuNewItem.ShortcutKeys = Keys.Control | Keys.N;
-            menuNewItem.Size = new Size(224, 26);
+            menuNewItem.Size = new Size(223, 26);
             menuNewItem.Text = "New Item";
             menuNewItem.Click += menuNewItem_Click;
             // 
@@ -150,33 +152,33 @@
             // 
             menuEditItem.Name = "menuEditItem";
             menuEditItem.ShortcutKeys = Keys.Control | Keys.E;
-            menuEditItem.Size = new Size(224, 26);
+            menuEditItem.Size = new Size(223, 26);
             menuEditItem.Text = "Edit Item";
             menuEditItem.Click += menuEditItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(221, 6);
+            toolStripSeparator2.Size = new Size(220, 6);
             // 
             // menuDeleteItem
             // 
             menuDeleteItem.Name = "menuDeleteItem";
             menuDeleteItem.ShortcutKeys = Keys.Control | Keys.D;
-            menuDeleteItem.Size = new Size(224, 26);
+            menuDeleteItem.Size = new Size(223, 26);
             menuDeleteItem.Text = "Delete Item";
             menuDeleteItem.Click += btnDeleteItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(221, 6);
+            toolStripSeparator3.Size = new Size(220, 6);
             // 
             // menuUpdate
             // 
             menuUpdate.Name = "menuUpdate";
             menuUpdate.ShortcutKeys = Keys.Control | Keys.R;
-            menuUpdate.Size = new Size(224, 26);
+            menuUpdate.Size = new Size(223, 26);
             menuUpdate.Text = "Update";
             menuUpdate.Click += listItemsToolStripMenuItem_Click;
             // 
@@ -280,7 +282,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, btnSaveFile, toolStripSeparator, btnCut, btnCopy, btnPaste, toolStripSeparator5 });
             toolStrip1.Location = new Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(267, 27);
+            toolStrip1.Size = new Size(228, 27);
             toolStrip1.TabIndex = 0;
             // 
             // btnAddItem
@@ -360,6 +362,12 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(6, 27);
             // 
+            // tmr
+            // 
+            tmr.Enabled = true;
+            tmr.Interval = 1000;
+            tmr.Tick += tmr_Tick;
+            // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -426,5 +434,6 @@
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripButton btnAddItem;
         private ToolStripButton btnEditItem;
+        private System.Windows.Forms.Timer tmr;
     }
 }
