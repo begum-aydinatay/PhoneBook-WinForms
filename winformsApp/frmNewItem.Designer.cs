@@ -37,6 +37,11 @@
             label3 = new Label();
             btnCancel = new Button();
             btnSave = new Button();
+            toolStrip1 = new ToolStrip();
+            cutToolStripButton = new ToolStripButton();
+            copyToolStripButton = new ToolStripButton();
+            pasteToolStripButton = new ToolStripButton();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -114,11 +119,52 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { cutToolStripButton, copyToolStripButton, pasteToolStripButton });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(355, 27);
+            toolStrip1.TabIndex = 8;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // cutToolStripButton
+            // 
+            cutToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            cutToolStripButton.Image = (Image)resources.GetObject("cutToolStripButton.Image");
+            cutToolStripButton.ImageTransparentColor = Color.Magenta;
+            cutToolStripButton.Name = "cutToolStripButton";
+            cutToolStripButton.Size = new Size(29, 24);
+            cutToolStripButton.Text = "C&ut";
+            cutToolStripButton.Click += cutToolStripButton_Click;
+            // 
+            // copyToolStripButton
+            // 
+            copyToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            copyToolStripButton.Image = (Image)resources.GetObject("copyToolStripButton.Image");
+            copyToolStripButton.ImageTransparentColor = Color.Magenta;
+            copyToolStripButton.Name = "copyToolStripButton";
+            copyToolStripButton.Size = new Size(29, 24);
+            copyToolStripButton.Text = "&Copy";
+            copyToolStripButton.Click += copyToolStripButton_Click;
+            // 
+            // pasteToolStripButton
+            // 
+            pasteToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            pasteToolStripButton.Image = (Image)resources.GetObject("pasteToolStripButton.Image");
+            pasteToolStripButton.ImageTransparentColor = Color.Magenta;
+            pasteToolStripButton.Name = "pasteToolStripButton";
+            pasteToolStripButton.Size = new Size(29, 24);
+            pasteToolStripButton.Text = "&Paste";
+            pasteToolStripButton.Click += pasteToolStripButton_Click;
+            // 
             // frmNewItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(355, 373);
+            Controls.Add(toolStrip1);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Controls.Add(txtBoxNo);
@@ -133,6 +179,8 @@
             Name = "frmNewItem";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "New Item Screen";
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +195,9 @@
         private Label label3;
         private Button btnCancel;
         private Button btnSave;
+        private ToolStrip toolStrip1;
+        private ToolStripButton cutToolStripButton;
+        private ToolStripButton copyToolStripButton;
+        private ToolStripButton pasteToolStripButton;
     }
 }

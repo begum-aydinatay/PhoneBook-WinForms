@@ -43,5 +43,35 @@ namespace PhoneBook
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void cutToolStripButton_Click(object sender, EventArgs e)
+        {
+            TextBox txt = this.ActiveControl as TextBox;
+
+            if (txt != null)
+            {
+                txt.Cut();
+            }
+        }
+
+        private void copyToolStripButton_Click(object sender, EventArgs e)
+        {
+            TextBox txt = this.ActiveControl as TextBox;
+
+            if (txt != null)
+            {
+                txt.Copy();
+            }
+        }
+
+        private void pasteToolStripButton_Click(object sender, EventArgs e)
+        {
+            TextBox txt = this.ActiveControl as TextBox;
+
+            if (txt != null)
+            {
+                txt.Paste();
+            }
+        }
     }
 }

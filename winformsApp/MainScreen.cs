@@ -18,7 +18,7 @@ namespace PhoneBook
 
         private void listItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.LoadData();
         }
 
         private void lblLastOperationInfo_Click(object sender, EventArgs e)
@@ -73,16 +73,7 @@ namespace PhoneBook
 
             //this.dataGridView.DataSource = dt;
 
-            ds.Tables.Clear();
-            ds.ReadXml(Application.StartupPath + "\\" + "data.xml", XmlReadMode.ReadSchema);
-
-            if (ds.Tables.Count > 0)
-            {
-                this.dataGridView.DataSource = ds.Tables[0];
-                this.CalculateItem();
-
-                this.lblLastOperationInfo.Text = "Table was loaded.";
-            }
+            this.LoadData();
         }
 
         private void menuEditItem_Click(object sender, EventArgs e)
@@ -144,6 +135,31 @@ namespace PhoneBook
         private void tmr_Tick(object sender, EventArgs e)
         {
             this.lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void LoadData()
+        {
+            ds.Tables.Clear();
+            ds.ReadXml(Application.StartupPath + "\\" + "data.xml", XmlReadMode.ReadSchema);
+
+            if (ds.Tables.Count > 0)
+            {
+                this.dataGridView.DataSource = ds.Tables[0];
+                this.CalculateItem();
+
+                this.lblLastOperationInfo.Text = "Table was loaded.";
+            }
+        }
+
+        private void menuExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void menuMoreInformation_Click(object sender, EventArgs e)
+        {
+            frmMoreInfo moreInfo = new frmMoreInfo();
+            moreInfo.ShowDialog();
         }
     }
 }
