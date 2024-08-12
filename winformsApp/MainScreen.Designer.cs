@@ -142,7 +142,7 @@
             // 
             menuNewItem.Name = "menuNewItem";
             menuNewItem.ShortcutKeys = Keys.Control | Keys.N;
-            menuNewItem.Size = new Size(223, 26);
+            menuNewItem.Size = new Size(224, 26);
             menuNewItem.Text = "New Item";
             menuNewItem.Click += menuNewItem_Click;
             // 
@@ -150,14 +150,14 @@
             // 
             menuEditItem.Name = "menuEditItem";
             menuEditItem.ShortcutKeys = Keys.Control | Keys.E;
-            menuEditItem.Size = new Size(223, 26);
+            menuEditItem.Size = new Size(224, 26);
             menuEditItem.Text = "Edit Item";
             menuEditItem.Click += menuEditItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(220, 6);
+            toolStripSeparator2.Size = new Size(221, 6);
             // 
             // menuDeleteItem
             // 
@@ -170,13 +170,13 @@
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(220, 6);
+            toolStripSeparator3.Size = new Size(221, 6);
             // 
             // menuUpdate
             // 
             menuUpdate.Name = "menuUpdate";
             menuUpdate.ShortcutKeys = Keys.Control | Keys.R;
-            menuUpdate.Size = new Size(223, 26);
+            menuUpdate.Size = new Size(224, 26);
             menuUpdate.Text = "Update";
             menuUpdate.Click += listItemsToolStripMenuItem_Click;
             // 
@@ -280,7 +280,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnAddItem, btnEditItem, btnDeleteItem, btnSaveFile, toolStripSeparator, btnCut, btnCopy, btnPaste, toolStripSeparator5 });
             toolStrip1.Location = new Point(4, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(228, 27);
+            toolStrip1.Size = new Size(267, 27);
             toolStrip1.TabIndex = 0;
             // 
             // btnAddItem
@@ -321,6 +321,7 @@
             btnSaveFile.Name = "btnSaveFile";
             btnSaveFile.Size = new Size(29, 24);
             btnSaveFile.Text = "&Save";
+            btnSaveFile.Click += btnSaveFile_Click;
             // 
             // toolStripSeparator
             // 

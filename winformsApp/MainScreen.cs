@@ -4,6 +4,8 @@ namespace PhoneBook
 {
     public partial class MainScreen : Form
     {
+        private DataSet ds = new DataSet();
+
         public MainScreen()
         {
             InitializeComponent();
@@ -52,19 +54,29 @@ namespace PhoneBook
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable("Contacts");
+            //DataTable dt = new DataTable("Contacts");
 
-            DataColumn dcId = new DataColumn("ID");
-            DataColumn dcName = new DataColumn("Name");
-            DataColumn dcSurname = new DataColumn("Surname");
-            DataColumn dcPhoneNo = new DataColumn("Telephone No.");
+            //DataColumn dcId = new DataColumn("ID");
+            //DataColumn dcName = new DataColumn("Name");
+            //DataColumn dcSurname = new DataColumn("Surname");
+            //DataColumn dcPhoneNo = new DataColumn("Telephone No.");
 
-            dt.Columns.Add(dcId);
-            dt.Columns.Add(dcName);
-            dt.Columns.Add(dcSurname);
-            dt.Columns.Add(dcPhoneNo);
+            //dt.Columns.Add(dcId);
+            //dt.Columns.Add(dcName);
+            //dt.Columns.Add(dcSurname);
+            //dt.Columns.Add(dcPhoneNo);
 
-            this.dataGridView.DataSource = dt;
+            //ds.Tables.Add(dt);
+
+            //this.dataGridView.DataSource = dt;
+
+            ds.Tables.Clear();
+            ds.ReadXml(Application.StartupPath + "\\" + "data.xml", XmlReadMode.ReadSchema);
+
+            if(ds.Tables.Count > 0)
+            {
+                this.dataGridView.DataSource = ds.Tables[0];
+            }
         }
 
         private void menuEditItem_Click(object sender, EventArgs e)
@@ -104,7 +116,12 @@ namespace PhoneBook
                 }
             }
 
-            
+
+        }
+
+        private void btnSaveFile_Click(object sender, EventArgs e)
+        {
+            ds.WriteXml(Application.StartupPath + "\\" + "data.xml", XmlWriteMode.WriteSchema);
         }
     }
 }
